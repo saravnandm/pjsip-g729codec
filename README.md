@@ -8,6 +8,7 @@ Patches to integrate g729 codec with pjsip library.
 
 The above three files are the patches required to integrate g729 codec with pjsip library. Please follow the patches carefully.
 
-Note:
-** g729 codec library took from linphone opensource project.
-** g729 codec is not a open source library. So make sure you have licence to use.
+Note:  
+** g729 codec is not a open source library. So make sure you have licence to use.  
+** g729 codec library(pj.diff file) took from linphone opensource project.
+
