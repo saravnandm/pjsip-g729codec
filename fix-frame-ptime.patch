@@ -1,0 +1,13 @@
+diff --git a/pjmedia/src/pjmedia-codec/g729.c b/pjmedia/src/pjmedia-codec/g729.c
+index 5b9919c..a54aee0 100644
+--- a/pjmedia/src/pjmedia-codec/g729.c
++++ b/pjmedia/src/pjmedia-codec/g729.c
+@@ -268,7 +268,7 @@
+     attr->info.avg_bps = 8000;
+     attr->info.max_bps = 8000;
+     attr->info.pcm_bits_per_sample = 16;
+-    attr->info.frm_ptime = 20;
++    attr->info.frm_ptime = 10;
+     attr->info.pt = PJMEDIA_RTP_PT_G729;
+ 
+     attr->setting.frm_per_pkt = 2;

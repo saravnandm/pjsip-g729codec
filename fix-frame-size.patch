@@ -1,0 +1,40 @@
+diff --git a/pjmedia/src/pjmedia-codec/g729.c b/pjmedia/src/pjmedia-codec/g729.c
+index 1cea58f..5b9919c 100644
+--- a/pjmedia/src/pjmedia-codec/g729.c
++++ b/pjmedia/src/pjmedia-codec/g729.c
+@@ -337,7 +337,7 @@
+ #if !PLC_DISABLED
+ 	/* Create PLC */
+ 	status = pjmedia_plc_create(g729_codec_factory.pool, 8000,
+-				    160, 0, &g729_data->plc);
++				    80, 0, &g729_data->plc);
+ 	if (status != PJ_SUCCESS) {
+ 	    pj_mutex_unlock(g729_codec_factory.mutex);
+ 	    return status;
+@@ -346,7 +346,7 @@
+ 
+ 	/* Create silence detector */
+ 	status = pjmedia_silence_det_create(g729_codec_factory.pool,
+-					    8000, 160,
++					    8000, 80,
+ 					    &g729_data->vad);
+ 	if (status != PJ_SUCCESS) {
+ 	    pj_mutex_unlock(g729_codec_factory.mutex);
+@@ -382,7 +382,7 @@
+      * next time.
+      */
+     for (i=0; i<2; ++i) {
+-	pj_int16_t frame[160];
++	pj_int16_t frame[80];
+ 	pjmedia_zero_samples(frame, PJ_ARRAY_SIZE(frame));
+ 	pjmedia_plc_save(g729_data->plc, frame);
+     }
+@@ -561,7 +561,7 @@
+     while (in_size >= 160) {
+ 	bcg729Encoder(g729_data->encoder, pcm_in,
+ 		   (unsigned char*)output->buf + output->size);
+-	pcm_in += 160;
++	pcm_in += 80;
+ 	output->size += 10;
+ 	in_size -= 160;
+     }
